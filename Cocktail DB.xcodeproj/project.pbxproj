@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		44E3D87E24C094A6005B8E82 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44E3D87D24C094A6005B8E82 /* AppDelegate.swift */; };
-		44E3D88024C094A6005B8E82 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44E3D87F24C094A6005B8E82 /* SceneDelegate.swift */; };
 		44E3D88224C094A6005B8E82 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44E3D88124C094A6005B8E82 /* ViewController.swift */; };
 		44E3D88524C094A6005B8E82 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 44E3D88324C094A6005B8E82 /* Main.storyboard */; };
 		44E3D88724C094AC005B8E82 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 44E3D88624C094AC005B8E82 /* Assets.xcassets */; };
@@ -18,7 +17,6 @@
 /* Begin PBXFileReference section */
 		44E3D87A24C094A6005B8E82 /* Cocktail DB.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Cocktail DB.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		44E3D87D24C094A6005B8E82 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		44E3D87F24C094A6005B8E82 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		44E3D88124C094A6005B8E82 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		44E3D88424C094A6005B8E82 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		44E3D88624C094AC005B8E82 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -57,7 +55,6 @@
 			isa = PBXGroup;
 			children = (
 				44E3D87D24C094A6005B8E82 /* AppDelegate.swift */,
-				44E3D87F24C094A6005B8E82 /* SceneDelegate.swift */,
 				44E3D88124C094A6005B8E82 /* ViewController.swift */,
 				44E3D88324C094A6005B8E82 /* Main.storyboard */,
 				44E3D88624C094AC005B8E82 /* Assets.xcassets */,
@@ -140,7 +137,6 @@
 			files = (
 				44E3D88224C094A6005B8E82 /* ViewController.swift in Sources */,
 				44E3D87E24C094A6005B8E82 /* AppDelegate.swift in Sources */,
-				44E3D88024C094A6005B8E82 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -216,7 +212,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.5;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -270,7 +266,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.5;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -294,7 +290,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "com.hialex.Cocktail-DB";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -312,7 +308,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "com.hialex.Cocktail-DB";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
