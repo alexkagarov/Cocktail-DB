@@ -8,6 +8,10 @@
 
 import UIKit
 
+protocol DrinksVCDelegate: class {
+    func didChangeFilters(filters: [UIFilterModel])
+}
+
 class DrinksVC: UIViewController {
 
     // MARK: - IBOutlets
@@ -66,6 +70,8 @@ class DrinksVC: UIViewController {
                 self.retryButton.isHidden = false
             })
         } else {
+            setupView()
+            
             self.viewModel.filtersLoaded = 0
             self.viewModel.groupedDrinks = []
             self.loadingLabel.text = "Loading drinks according to filters..."
@@ -73,6 +79,7 @@ class DrinksVC: UIViewController {
             self.updateData(success: {
                 self.completeLoading()
                 self.tableView.reloadData()
+                self.tableView.scrollToRow(at: IndexPath(row: 0, section: 0), at: .top, animated: true)
             })
         }
     }
@@ -98,6 +105,7 @@ class DrinksVC: UIViewController {
             
             let vm = FiltersVM(filters: viewModel.filters)
             dest.viewModel = vm
+            dest.delegate = self
         }
     }
     
@@ -170,5 +178,12 @@ extension DrinksVC: UITableViewDelegate {
                 })
             }
         }
+    }
+}
+
+// MARK: - DrinksVC Delegate Extension to pass selected filters from FiltersVC
+extension DrinksVC: DrinksVCDelegate {
+    func didChangeFilters(filters: [UIFilterModel]) {
+        viewModel.filters = filters
     }
 }

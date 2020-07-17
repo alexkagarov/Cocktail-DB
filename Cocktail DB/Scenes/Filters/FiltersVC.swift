@@ -16,6 +16,7 @@ class FiltersVC: UIViewController {
     
     // MARK: - Variables
     var viewModel: FiltersVM!
+    weak var delegate: DrinksVCDelegate?
     
     // MARK: - VC Life Cycle
     override func viewDidLoad() {
@@ -27,6 +28,7 @@ class FiltersVC: UIViewController {
     
     // MARK: - IBActions
     @IBAction func onApplyButtonTapped(_ sender: UIButton) {
+        delegate?.didChangeFilters(filters: viewModel.filters)
         navigationController?.popViewController(animated: true)
     }
 }
