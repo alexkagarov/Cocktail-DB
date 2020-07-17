@@ -2,7 +2,7 @@
 //  DrinksVC.swift
 //  Cocktail DB
 //
-//  Created by Mac on 16.07.2020.
+//  Created by Oleksii Kaharov on 16.07.2020.
 //  Copyright © 2020 hialex. All rights reserved.
 //
 
@@ -18,24 +18,25 @@ class DrinksVC: UIViewController {
     @IBOutlet weak var loadingLabel: UILabel!
     @IBOutlet weak var retryButton: UIButton!
     
-    
     // MARK: - Variables
     var viewModel: DrinksVM = DrinksVM()
     
     // MARK: - VC Life Cycle
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        setupView()
     }
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
-        setupView()
         loadData()
     }
     
     // MARK: - Functions
     private func setupView() {
+        activityIndicator.startAnimating()
         loadingView.isHidden = false
         retryButton.isHidden = true
     }
@@ -46,37 +47,45 @@ class DrinksVC: UIViewController {
     }
     
     private func loadData() {
-        retryButton.isHidden = true
         loadingLabel.text = "Loading filters..."
         
         if viewModel.filters.isEmpty {
             viewModel.loadAllFilters(success: {
                 self.loadingLabel.text = "Loading drinks according to filters..."
+                self.viewModel.filtersLoaded = 0
                 
                 self.updateData(success: {
-                    self.activityIndicator.stopAnimating()
-                    self.loadingView.isHidden = true
+                    self.completeLoading()
                     self.tableView.reloadData()
                 })
                 
             }, failure: { (error) in
                 print(error)
+                APIManager.shared.cancelAllTasks()
                 self.loadingLabel.text = error
                 self.retryButton.isHidden = false
             })
         } else {
+            self.viewModel.filtersLoaded = 0
+            self.viewModel.groupedDrinks = []
+            self.loadingLabel.text = "Loading drinks according to filters..."
             
+            self.updateData(success: {
+                self.completeLoading()
+                self.tableView.reloadData()
+            })
         }
     }
     
     private func updateData(success: (()->Void)?) {
-        viewModel.groupedDrinks = []
-        
-        viewModel.loadNextDrinksList(index: 0, success: {
+        viewModel.loadNextDrinksList(index: viewModel.filtersLoaded, success: {
+            self.viewModel.filtersLoaded += 1
+            
             success?()
             
         }, failure: { (error) in
             print(error)
+            APIManager.shared.cancelAllTasks()
             self.loadingLabel.text = error
             self.retryButton.isHidden = false
         })
@@ -99,11 +108,10 @@ class DrinksVC: UIViewController {
         }
     }
     
-    
     @IBAction func onRetryButtonTapped(_ sender: UIButton) {
+        setupView()
         loadData()
     }
-    
 }
 
 // MARK: - UITableView DataSource Extension
@@ -124,20 +132,24 @@ extension DrinksVC: UITableViewDataSource {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: DrinkTVC.identifier, for: indexPath) as? DrinkTVC else { return UITableViewCell() }
         
         cell.drinkTitleLabel.text = viewModel.groupedDrinks[indexPath.section].drinks[indexPath.row].strDrink
-        
         if let thumbnail = viewModel.groupedDrinks[indexPath.section].drinks[indexPath.row].strDrinkThumb {
             cell.drinkImage.kf.setImage(with: URL(string: thumbnail))
         }
         
-        if viewModel.groupedDrinks.count < viewModel.filters.count {
-            if indexPath.row == viewModel.groupedDrinks[indexPath.section].drinks.count - 1 {
-                viewModel.loadNextDrinksList(index: indexPath.section+1, success: {
-                    tableView.reloadData()
-                }, failure: { (error) in
-                    print(error)
-                })
-            }
-        } else {
+        return cell
+    }
+}
+
+// MARK: - UITableView Delegate Extension
+extension DrinksVC: UITableViewDelegate {
+    func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        let selectedFilters = viewModel.filters.filter({ $0.isSelected == true })
+        
+        if (viewModel.groupedDrinks.count == selectedFilters.count) &&
+            indexPath.section == (viewModel.groupedDrinks.count) - 1 &&
+            indexPath.row == (viewModel.groupedDrinks[indexPath.section].drinks.count) - 1 {
+//            self.viewModel.needsDownload = false
+            
             let alert = UIAlertController(title: "All data loaded", message: "You've reached the end of all drinks in Cocktail DB", preferredStyle: .alert)
             
             let okAction = UIAlertAction(title: "OK", style: .default, handler: nil)
@@ -149,6 +161,14 @@ extension DrinksVC: UITableViewDataSource {
             self.present(alert, animated: true, completion: nil)
         }
         
-        return cell
+        if (viewModel.groupedDrinks.count < selectedFilters.count) {
+            if indexPath.row == viewModel.groupedDrinks[indexPath.section].drinks.count - 1 &&
+                indexPath.section == viewModel.filtersLoaded-1 {
+                
+                self.updateData(success: {
+                    self.tableView.reloadData()
+                })
+            }
+        }
     }
 }

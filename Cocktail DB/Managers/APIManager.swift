@@ -2,7 +2,7 @@
 //  APIManager.swift
 //  Cocktail DB
 //
-//  Created by Mac on 16.07.2020.
+//  Created by Oleksii Kaharov on 16.07.2020.
 //  Copyright © 2020 hialex. All rights reserved.
 //
 
@@ -78,6 +78,14 @@ extension APIManager {
         }, failure: { (error) in
             print(error.localizedDescription)
             failure?(error)
+        })
+    }
+}
+
+extension APIManager {
+    func cancelAllTasks() {
+        Alamofire.Session.default.session.getAllTasks(completionHandler: { (tasks) in
+            tasks.forEach({ $0.cancel() })
         })
     }
 }

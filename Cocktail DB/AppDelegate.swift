@@ -2,7 +2,7 @@
 //  AppDelegate.swift
 //  Cocktail DB
 //
-//  Created by Mac on 16.07.2020.
+//  Created by Oleksii Kaharov on 16.07.2020.
 //  Copyright © 2020 hialex. All rights reserved.
 //
 

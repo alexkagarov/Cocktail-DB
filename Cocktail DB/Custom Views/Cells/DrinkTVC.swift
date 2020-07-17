@@ -2,7 +2,7 @@
 //  DrinkTVC.swift
 //  Cocktail DB
 //
-//  Created by Mac on 17.07.2020.
+//  Created by Oleksii Kaharov on 17.07.2020.
 //  Copyright © 2020 hialex. All rights reserved.
 //
 

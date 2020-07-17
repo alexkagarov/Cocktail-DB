@@ -2,7 +2,7 @@
 //  DrinksVM.swift
 //  Cocktail DB
 //
-//  Created by Mac on 16.07.2020.
+//  Created by Oleksii Kaharov on 16.07.2020.
 //  Copyright © 2020 hialex. All rights reserved.
 //
 
@@ -11,6 +11,10 @@ import Foundation
 class DrinksVM {
     var groupedDrinks: [GroupedDrinkModel] = []
     var filters: [UIFilterModel] = []
+    
+    var needsDownload = false
+    
+    var filtersLoaded = 0
 }
 
 extension DrinksVM {
@@ -41,7 +45,7 @@ extension DrinksVM {
     func loadNextDrinksList(index: Int, success: (()->Void)?, failure: ((String)->Void)?) {
         let selectedFilters = filters.filter({ $0.isSelected == true })
         
-        if selectedFilters.count > 0 && groupedDrinks.count < selectedFilters.count {
+        if (selectedFilters.count > 0) && (groupedDrinks.count < selectedFilters.count) {
             loadDrinksForFilter(selectedFilters[index].filter.strCategory!, success: {
                 success?()
             }, failure: { (error) in

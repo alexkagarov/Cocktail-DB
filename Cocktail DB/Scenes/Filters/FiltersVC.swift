@@ -2,7 +2,7 @@
 //  FiltersVC.swift
 //  Cocktail DB
 //
-//  Created by Mac on 16.07.2020.
+//  Created by Oleksii Kaharov on 16.07.2020.
 //  Copyright © 2020 hialex. All rights reserved.
 //
 
@@ -17,6 +17,7 @@ class FiltersVC: UIViewController {
     // MARK: - Variables
     var viewModel: FiltersVM!
     
+    // MARK: - VC Life Cycle
     override func viewDidLoad() {
         super.viewDidLoad()
     }
@@ -42,7 +43,7 @@ extension FiltersVC: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
         if section == 0 {
-            return viewModel.filters == viewModel.initialFilters ? 0 : 165
+            return viewModel.filters == viewModel.initialFilters ? 0 : 80
         }
         
         return 0

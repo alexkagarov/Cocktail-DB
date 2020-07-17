@@ -67,6 +67,7 @@
                                 </prototypes>
                                 <connections>
                                     <outlet property="dataSource" destination="BYZ-38-t0r" id="cN8-SG-HEX"/>
+                                    <outlet property="delegate" destination="BYZ-38-t0r" id="mPP-Cc-szS"/>
                                 </connections>
                             </tableView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="CNa-Tb-XrO">
@@ -201,7 +202,7 @@
                                 </connections>
                             </tableView>
                             <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xEu-HU-3Fg">
-                                <rect key="frame" x="27" y="504" width="321" height="53"/>
+                                <rect key="frame" x="27" y="587" width="321" height="53"/>
                                 <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="53" id="g95-x1-ToD"/>
@@ -223,7 +224,7 @@
                             <constraint firstItem="20H-uL-NKT" firstAttribute="trailing" secondItem="xEu-HU-3Fg" secondAttribute="trailing" constant="27" id="eqT-Kz-cyA"/>
                             <constraint firstItem="20H-uL-NKT" firstAttribute="bottom" secondItem="yDC-bV-1ig" secondAttribute="bottom" id="fQr-hf-M2d"/>
                             <constraint firstItem="xEu-HU-3Fg" firstAttribute="leading" secondItem="20H-uL-NKT" secondAttribute="leading" constant="27" id="nhw-ZX-7o8"/>
-                            <constraint firstItem="20H-uL-NKT" firstAttribute="bottom" secondItem="xEu-HU-3Fg" secondAttribute="bottom" constant="110" id="oMJ-lr-zUC"/>
+                            <constraint firstItem="20H-uL-NKT" firstAttribute="bottom" secondItem="xEu-HU-3Fg" secondAttribute="bottom" constant="27" id="oMJ-lr-zUC"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="20H-uL-NKT"/>
                     </view>
