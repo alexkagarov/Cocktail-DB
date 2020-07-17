@@ -29,7 +29,7 @@
                                 <rect key="frame" x="0.0" y="44" width="375" height="623"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="DrinkCell" id="VsD-BK-bVC">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="DrinkTVC" id="VsD-BK-bVC" customClass="DrinkTVC" customModule="Cocktail_DB" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="55.5" width="375" height="140"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="VsD-BK-bVC" id="ZPA-4M-6Dn">
@@ -59,6 +59,10 @@
                                                 <constraint firstItem="dPE-Ze-Pdb" firstAttribute="centerY" secondItem="oGX-k2-8Py" secondAttribute="centerY" id="yr6-I7-d55"/>
                                             </constraints>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="drinkImage" destination="oGX-k2-8Py" id="RfY-ZX-YXH"/>
+                                            <outlet property="drinkTitleLabel" destination="dPE-Ze-Pdb" id="KnN-Yt-Sdf"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                                 <connections>
@@ -102,7 +106,7 @@
                                 <color key="separatorColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <color key="sectionIndexBackgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="FilterCell" rowHeight="50" id="jrp-d4-x8n">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="FilterTVC" rowHeight="50" id="jrp-d4-x8n" customClass="FilterTVC" customModule="Cocktail_DB" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="375" height="50"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="jrp-d4-x8n" id="CtB-UV-tC0">
@@ -133,6 +137,10 @@
                                             </constraints>
                                         </tableViewCellContentView>
                                         <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <connections>
+                                            <outlet property="checkmarkImage" destination="Cje-Ok-SA1" id="OfG-GM-UoG"/>
+                                            <outlet property="filterTitleLabel" destination="g2g-EL-iYl" id="zsd-lQ-8CU"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                                 <connections>

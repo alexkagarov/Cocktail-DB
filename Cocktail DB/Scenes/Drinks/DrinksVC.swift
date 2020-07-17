@@ -31,14 +31,22 @@ class DrinksVC: UIViewController {
 // MARK: - UITableView DataSource Extension
 extension DrinksVC: UITableViewDataSource {
     func numberOfSections(in tableView: UITableView) -> Int {
-        return viewModel.filters.count
+        return viewModel.groupedDrinks.count
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 0
+        return viewModel.groupedDrinks[section].drinks.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        return UITableViewCell()
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: DrinkTVC.identifier, for: indexPath) as? DrinkTVC else { return UITableViewCell() }
+        
+        cell.drinkTitleLabel.text = viewModel.groupedDrinks[indexPath.section].drinks[indexPath.row].strDrink
+        
+        return cell
+    }
+    
+    func sectionIndexTitles(for tableView: UITableView) -> [String]? {
+        return viewModel.groupedDrinks.map({ $0.groupName })
     }
 }

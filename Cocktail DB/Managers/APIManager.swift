@@ -7,3 +7,18 @@
 //
 
 import Foundation
+
+class APIManager: NSObject {
+    override init() {
+        super.init()
+    }
+}
+
+// Singleton Extension
+extension APIManager {
+    static let shared = APIManager()
+}
+
+extension APIManager {
+    
+}

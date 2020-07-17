@@ -7,3 +7,10 @@
 //
 
 import Foundation
+
+struct URLs {
+    static let Base = "https://www.thecocktaildb.com/api/json/v1/1"
+    
+    static let AllFilters = "/list.php?c=list"
+    static let Drinks = "/filter.php?c="
+}

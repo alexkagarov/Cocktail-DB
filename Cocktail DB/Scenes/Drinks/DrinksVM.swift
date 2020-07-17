@@ -17,4 +17,8 @@ extension DrinksVM {
     func loadFiltersList() {
         
     }
+    
+    func loadDrinksForFilter(_ filter: String) {
+        
+    }
 }
