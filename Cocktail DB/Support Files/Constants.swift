@@ -14,3 +14,7 @@ struct URLs {
     static let AllFilters = "/list.php?c=list"
     static let Drinks = "/filter.php?c="
 }
+
+struct Segues {
+    static let Filters = "FiltersSegue"
+}

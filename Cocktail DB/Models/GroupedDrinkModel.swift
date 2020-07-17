@@ -8,7 +8,7 @@
 
 import Foundation
 
-class GroupedDrinkModel {
+struct GroupedDrinkModel {
     var groupName: String
     var drinks: [DrinkModel]
     

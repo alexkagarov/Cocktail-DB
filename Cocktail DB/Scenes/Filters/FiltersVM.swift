@@ -9,7 +9,13 @@
 import Foundation
 
 class FiltersVM {
+    var filters: [UIFilterModel]
+    var initialFilters: [UIFilterModel]
     
+    init(filters: [UIFilterModel]) {
+        self.filters = filters
+        self.initialFilters = filters
+    }
 }
 
 extension FiltersVM {

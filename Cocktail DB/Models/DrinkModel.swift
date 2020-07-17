@@ -8,7 +8,7 @@
 
 import Foundation
 
-class DrinkModel: Codable {
+struct DrinkModel: Codable {
     var strDrink: String?
     var strDrinkThumb: String?
 }
