@@ -29,6 +29,8 @@ class DrinksVC: CustomVC {
     // MARK: - VC Life Cycle
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        registerCustomNib()
     }
 
     override func viewWillAppear(_ animated: Bool) {
@@ -45,6 +47,10 @@ class DrinksVC: CustomVC {
         startLoading()
     }
     
+    private func registerCustomNib() {
+        tableView.register(UINib(nibName: DrinkSectionHeaderView.reuseIdentifier, bundle: Bundle.main), forHeaderFooterViewReuseIdentifier: DrinkSectionHeaderView.reuseIdentifier)
+    }
+    
     private func setupNavBar() {
         navBar?.delegate = self
         
@@ -55,8 +61,8 @@ class DrinksVC: CustomVC {
     }
     
     private func startLoading() {
-        activityIndicator.startAnimating()
         loadingView.isHidden = false
+        activityIndicator.startAnimating()
         retryButton.isHidden = true
     }
     
@@ -80,12 +86,12 @@ class DrinksVC: CustomVC {
                 
             }, failure: { (error) in
                 print(error)
-                APIManager.shared.cancelAllTasks()
+                self.loadingView.isHidden = false
                 self.loadingLabel.text = error
                 self.retryButton.isHidden = false
             })
         } else {
-            setupView()
+            startLoading()
             
             self.viewModel.filtersLoaded = 0
             self.viewModel.groupedDrinks = []
@@ -107,7 +113,7 @@ class DrinksVC: CustomVC {
             
         }, failure: { (error) in
             print(error)
-            APIManager.shared.cancelAllTasks()
+            self.loadingView.isHidden = false
             self.loadingLabel.text = error
             self.retryButton.isHidden = false
         })
@@ -126,7 +132,7 @@ class DrinksVC: CustomVC {
     
     // MARK: - IBActions
     @IBAction func onRetryButtonTapped(_ sender: UIButton) {
-        setupView()
+        startLoading()
         loadData()
     }
 }
@@ -141,8 +147,16 @@ extension DrinksVC: UITableViewDataSource {
         return viewModel.groupedDrinks[section].drinks.count
     }
     
-    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        return viewModel.groupedDrinks[section].groupName
+    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        return 36
+    }
+    
+    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        guard let header = tableView.dequeueReusableHeaderFooterView(withIdentifier: DrinkSectionHeaderView.reuseIdentifier) as? DrinkSectionHeaderView else { return UIView() }
+        
+        header.sectionTitle.text = viewModel.groupedDrinks[section].groupName
+        
+        return header
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {

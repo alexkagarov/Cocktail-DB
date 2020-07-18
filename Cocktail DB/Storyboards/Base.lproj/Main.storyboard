@@ -27,7 +27,7 @@
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="none" allowsSelection="NO" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" sectionFooterHeight="18" translatesAutoresizingMaskIntoConstraints="NO" id="iJw-p1-Z1b">
                                 <rect key="frame" x="0.0" y="70" width="375" height="597"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <color key="backgroundColor" name="White-Black"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="DrinkTVC" id="VsD-BK-bVC" customClass="DrinkTVC" customModule="Cocktail_DB" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="55.5" width="375" height="140"/>
@@ -50,6 +50,7 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
+                                            <color key="backgroundColor" name="White-Black"/>
                                             <constraints>
                                                 <constraint firstItem="dPE-Ze-Pdb" firstAttribute="leading" secondItem="oGX-k2-8Py" secondAttribute="trailing" constant="21" id="BbO-O3-Zaw"/>
                                                 <constraint firstItem="oGX-k2-8Py" firstAttribute="leading" secondItem="ZPA-4M-6Dn" secondAttribute="leading" constant="20" id="KZi-q2-ZJP"/>
@@ -81,7 +82,7 @@
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kNi-CZ-LvT">
-                                        <rect key="frame" x="27" y="333.5" width="321" height="18"/>
+                                        <rect key="frame" x="27" y="333.5" width="321" height="17.5"/>
                                         <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="15"/>
                                         <color key="textColor" red="0.4941176471" green="0.4941176471" blue="0.4941176471" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
@@ -101,11 +102,12 @@
                                             <action selector="onRetryButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="B9p-Cj-0L7"/>
                                         </connections>
                                     </button>
-                                    <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" animating="YES" style="large" translatesAutoresizingMaskIntoConstraints="NO" id="1Bv-PI-pMO">
-                                        <rect key="frame" x="169" y="296.5" width="37" height="37"/>
+                                    <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" animating="YES" style="medium" translatesAutoresizingMaskIntoConstraints="NO" id="1Bv-PI-pMO">
+                                        <rect key="frame" x="177.5" y="313.5" width="20" height="20"/>
+                                        <color key="color" name="Black-White"/>
                                     </activityIndicatorView>
                                 </subviews>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <color key="backgroundColor" name="White-Black"/>
                                 <constraints>
                                     <constraint firstItem="kNi-CZ-LvT" firstAttribute="top" secondItem="CNa-Tb-XrO" secondAttribute="centerY" id="A7f-ZD-am0"/>
                                     <constraint firstAttribute="trailing" secondItem="kNi-CZ-LvT" secondAttribute="trailing" constant="27" id="AHR-qm-Qao"/>
@@ -119,7 +121,7 @@
                                 </constraints>
                             </view>
                         </subviews>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <color key="backgroundColor" name="White-Black"/>
                         <constraints>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="CNa-Tb-XrO" secondAttribute="trailing" id="1YQ-dz-HG0"/>
                             <constraint firstItem="CNa-Tb-XrO" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="3kT-0G-iEJ"/>
@@ -236,7 +238,7 @@
                                 </connections>
                             </button>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="backgroundColor" name="White-Black"/>
                         <constraints>
                             <constraint firstItem="yDC-bV-1ig" firstAttribute="top" secondItem="zt6-rL-G9O" secondAttribute="bottom" id="0Oe-lH-Pyr"/>
                             <constraint firstItem="20H-uL-NKT" firstAttribute="trailing" secondItem="yDC-bV-1ig" secondAttribute="trailing" id="4Ac-uv-sFF"/>

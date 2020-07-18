@@ -4,9 +4,15 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
+    <customFonts key="customFonts">
+        <array key="Roboto-Medium.ttf">
+            <string>Roboto-Medium</string>
+        </array>
+    </customFonts>
     <scenes>
         <!--View Controller-->
         <scene sceneID="EHf-IW-A2E">
@@ -15,7 +21,30 @@
                     <view key="view" contentMode="scaleToFill" id="Ze5-6b-2t3">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Cocktail" translatesAutoresizingMaskIntoConstraints="NO" id="oO0-c8-T6c">
+                                <rect key="frame" x="112.5" y="213.5" width="150" height="150"/>
+                                <color key="tintColor" name="Black-White"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="oO0-c8-T6c" secondAttribute="height" multiplier="1:1" id="rsy-52-11a"/>
+                                </constraints>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Cocktail DB" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ehr-YO-czO">
+                                <rect key="frame" x="27" y="363.5" width="321" height="28"/>
+                                <fontDescription key="fontDescription" name="Roboto-Medium" family="Roboto" pointSize="24"/>
+                                <color key="textColor" name="Black-White"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="ehr-YO-czO" firstAttribute="top" secondItem="oO0-c8-T6c" secondAttribute="bottom" id="2v2-mg-RTb"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="ehr-YO-czO" secondAttribute="trailing" constant="27" id="Td5-vM-VCL"/>
+                            <constraint firstItem="oO0-c8-T6c" firstAttribute="bottom" secondItem="Ze5-6b-2t3" secondAttribute="centerY" constant="30" id="geo-pM-DAv"/>
+                            <constraint firstItem="oO0-c8-T6c" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="lhb-b3-cR3"/>
+                            <constraint firstItem="ehr-YO-czO" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="27" id="oS8-Ed-ylK"/>
+                            <constraint firstItem="oO0-c8-T6c" firstAttribute="width" secondItem="Ze5-6b-2t3" secondAttribute="width" multiplier="0.4" id="yQS-EH-OXV"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                 </viewController>
@@ -24,4 +53,10 @@
             <point key="canvasLocation" x="53" y="375"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="Cocktail" width="512" height="512"/>
+        <namedColor name="Black-White">
+            <color red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+    </resources>
 </document>

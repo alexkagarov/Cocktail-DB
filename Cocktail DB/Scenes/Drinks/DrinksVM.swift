@@ -34,10 +34,12 @@ extension DrinksVM {
                 
             } catch let error {
                 print(error)
+                APIManager.shared.cancelAllTasks()
                 failure?(error.localizedDescription)
             }
         }, failure: { (error) in
             print(error)
+            APIManager.shared.cancelAllTasks()
             failure?(error.localizedDescription)
         })
     }
@@ -49,6 +51,8 @@ extension DrinksVM {
             loadDrinksForFilter(selectedFilters[index].filter.strCategory!, success: {
                 success?()
             }, failure: { (error) in
+                print(error)
+                APIManager.shared.cancelAllTasks()
                 failure?(error)
             })
         }
@@ -77,11 +81,13 @@ extension DrinksVM {
                 
             } catch let error {
                 print(error)
+                APIManager.shared.cancelAllTasks()
                 failure?(error.localizedDescription)
             }
             
         }, failure: { (error) in
             print(error)
+            APIManager.shared.cancelAllTasks()
             failure?(error.localizedDescription)
         })
     }

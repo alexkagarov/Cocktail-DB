@@ -72,7 +72,7 @@ class CustomNavBar: UIView {
         
         contentView.frame = self.bounds
         contentView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
-        backgroundColor = .clear
+        backgroundColor = Colors.WhiteToBlack
         
         isBackBtnHidden = true
         isRightBtnHidden = true
