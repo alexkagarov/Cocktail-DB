@@ -8,7 +8,7 @@
 
 import UIKit
 
-class FiltersVC: UIViewController {
+class FiltersVC: CustomVC, UINavigationControllerDelegate, UIGestureRecognizerDelegate {
 
     // MARK: - IBOutlets
     @IBOutlet weak var tableView: UITableView!
@@ -21,10 +21,25 @@ class FiltersVC: UIViewController {
     // MARK: - VC Life Cycle
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        self.navigationController?.interactivePopGestureRecognizer?.delegate = self
     }
     
     // MARK: - Functions
+    override func setupView() {
+        super.setupView()
+        
+        setupNavBar()
+    }
     
+    private func setupNavBar() {
+        navBar?.delegate = self
+        
+        navBar?.title = "Filters"
+        
+        navBar?.isBackBtnHidden = false
+        navBar?.isRightBtnHidden = true
+    }
     
     // MARK: - IBActions
     @IBAction func onApplyButtonTapped(_ sender: UIButton) {
@@ -72,5 +87,15 @@ extension FiltersVC: UITableViewDelegate {
         tableView.reloadRows(at: [indexPath], with: .none)
         
         applyButton.isHidden = viewModel.filters == viewModel.initialFilters
+    }
+}
+
+extension FiltersVC: CustomNavBarDelegate {
+    func backBtnAction() {
+        pop()
+    }
+    
+    func rightBtnAction() {
+        // there is no right button, it can be repeating "APPLY" for filters though
     }
 }

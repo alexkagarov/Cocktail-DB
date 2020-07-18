@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import UIKit
 
 struct URLs {
     static let Base = "https://www.thecocktaildb.com/api/json/v1/1"
@@ -17,4 +18,9 @@ struct URLs {
 
 struct Segues {
     static let Filters = "FiltersSegue"
+}
+
+struct Colors {
+    static let WhiteToBlack = UIColor(named: "White-Black")
+    static let BlackToWhite = UIColor(named: "Black-White")
 }

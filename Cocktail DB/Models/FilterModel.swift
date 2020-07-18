@@ -12,7 +12,7 @@ struct FilterModel: Codable & Equatable {
     var strCategory: String?
 }
 
-struct UIFilterModel: Codable & Equatable {
+struct UIFilterModel: Equatable {
     let filter: FilterModel
     var isSelected: Bool = true
     

@@ -26,7 +26,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="none" allowsSelection="NO" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" sectionFooterHeight="18" translatesAutoresizingMaskIntoConstraints="NO" id="iJw-p1-Z1b">
-                                <rect key="frame" x="0.0" y="44" width="375" height="623"/>
+                                <rect key="frame" x="0.0" y="70" width="375" height="597"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="DrinkTVC" id="VsD-BK-bVC" customClass="DrinkTVC" customModule="Cocktail_DB" customModuleProvider="target">
@@ -70,24 +70,33 @@
                                     <outlet property="delegate" destination="BYZ-38-t0r" id="mPP-Cc-szS"/>
                                 </connections>
                             </tableView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ijR-PS-vgt" userLabel="Custom Nav Bar" customClass="CustomNavBar" customModule="Cocktail_DB" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="70"/>
+                                <color key="backgroundColor" name="White-Black"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="70" id="5yg-Gp-xbi"/>
+                                </constraints>
+                            </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="CNa-Tb-XrO">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kNi-CZ-LvT">
-                                        <rect key="frame" x="27" y="333.5" width="321" height="17.5"/>
+                                        <rect key="frame" x="27" y="333.5" width="321" height="18"/>
                                         <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="15"/>
                                         <color key="textColor" red="0.4941176471" green="0.4941176471" blue="0.4941176471" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Coz-DO-OlG">
                                         <rect key="frame" x="27" y="587" width="321" height="53"/>
-                                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <color key="backgroundColor" name="Black-White"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="53" id="XKe-10-13r"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" name="Roboto-Bold" family="Roboto" pointSize="16"/>
                                         <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        <state key="normal" title="RETRY"/>
+                                        <state key="normal" title="RETRY">
+                                            <color key="titleColor" name="White-Black"/>
+                                        </state>
                                         <connections>
                                             <action selector="onRetryButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="B9p-Cj-0L7"/>
                                         </connections>
@@ -114,8 +123,11 @@
                         <constraints>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="CNa-Tb-XrO" secondAttribute="trailing" id="1YQ-dz-HG0"/>
                             <constraint firstItem="CNa-Tb-XrO" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="3kT-0G-iEJ"/>
-                            <constraint firstItem="iJw-p1-Z1b" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="8Xz-v2-QPa"/>
+                            <constraint firstItem="iJw-p1-Z1b" firstAttribute="top" secondItem="ijR-PS-vgt" secondAttribute="bottom" id="8Xz-v2-QPa"/>
                             <constraint firstItem="CNa-Tb-XrO" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="Lqk-h4-Qll"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="ijR-PS-vgt" secondAttribute="trailing" id="SJc-yA-ao4"/>
+                            <constraint firstItem="ijR-PS-vgt" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="Tfb-2T-U1D"/>
+                            <constraint firstItem="ijR-PS-vgt" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="c44-lN-lTe"/>
                             <constraint firstItem="iJw-p1-Z1b" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="fwK-Hc-tUD"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="CNa-Tb-XrO" secondAttribute="bottom" id="jBf-5H-UNS"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="iJw-p1-Z1b" secondAttribute="trailing" id="mYx-Vp-vkJ"/>
@@ -123,7 +135,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Drinks" largeTitleDisplayMode="always" id="7dM-3p-EJv">
+                    <navigationItem key="navigationItem" title="Drinks" largeTitleDisplayMode="never" id="7dM-3p-EJv">
                         <barButtonItem key="rightBarButtonItem" image="Filter" style="plain" id="B1L-ur-l58">
                             <color key="tintColor" name="Black-White"/>
                             <connections>
@@ -135,6 +147,7 @@
                         <outlet property="activityIndicator" destination="1Bv-PI-pMO" id="aZN-XW-iDM"/>
                         <outlet property="loadingLabel" destination="kNi-CZ-LvT" id="46W-t7-lfD"/>
                         <outlet property="loadingView" destination="CNa-Tb-XrO" id="LoZ-iw-Kpq"/>
+                        <outlet property="navBar" destination="ijR-PS-vgt" id="YuD-8Y-HuF"/>
                         <outlet property="retryButton" destination="Coz-DO-OlG" id="hNz-JO-hb9"/>
                         <outlet property="tableView" destination="iJw-p1-Z1b" id="cLA-6O-Ikj"/>
                         <segue destination="s9h-IV-ZgA" kind="show" identifier="FiltersSegue" id="nGB-wH-nxX"/>
@@ -153,7 +166,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="yDC-bV-1ig">
-                                <rect key="frame" x="0.0" y="44" width="375" height="623"/>
+                                <rect key="frame" x="0.0" y="70" width="375" height="597"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <color key="separatorColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <color key="sectionIndexBackgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -201,15 +214,22 @@
                                     <outlet property="delegate" destination="s9h-IV-ZgA" id="lxg-8n-FeM"/>
                                 </connections>
                             </tableView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zt6-rL-G9O" userLabel="Custom Nav Bar" customClass="CustomNavBar" customModule="Cocktail_DB" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="70"/>
+                                <color key="backgroundColor" name="White-Black"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="70" id="bJt-Wk-a8H"/>
+                                </constraints>
+                            </view>
                             <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xEu-HU-3Fg">
                                 <rect key="frame" x="27" y="587" width="321" height="53"/>
-                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="backgroundColor" name="Black-White"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="53" id="g95-x1-ToD"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" name="Roboto-Bold" family="Roboto" pointSize="16"/>
                                 <state key="normal" title="APPLY">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <color key="titleColor" name="White-Black"/>
                                 </state>
                                 <connections>
                                     <action selector="onApplyButtonTapped:" destination="s9h-IV-ZgA" eventType="touchUpInside" id="7a5-cI-wVn"/>
@@ -218,19 +238,23 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="yDC-bV-1ig" firstAttribute="top" secondItem="20H-uL-NKT" secondAttribute="top" id="0Oe-lH-Pyr"/>
+                            <constraint firstItem="yDC-bV-1ig" firstAttribute="top" secondItem="zt6-rL-G9O" secondAttribute="bottom" id="0Oe-lH-Pyr"/>
                             <constraint firstItem="20H-uL-NKT" firstAttribute="trailing" secondItem="yDC-bV-1ig" secondAttribute="trailing" id="4Ac-uv-sFF"/>
                             <constraint firstItem="yDC-bV-1ig" firstAttribute="leading" secondItem="20H-uL-NKT" secondAttribute="leading" id="6wL-xC-WOk"/>
+                            <constraint firstItem="zt6-rL-G9O" firstAttribute="top" secondItem="20H-uL-NKT" secondAttribute="top" id="CyJ-6f-6qK"/>
+                            <constraint firstItem="zt6-rL-G9O" firstAttribute="trailing" secondItem="20H-uL-NKT" secondAttribute="trailing" id="Fwu-z4-hVn"/>
                             <constraint firstItem="20H-uL-NKT" firstAttribute="trailing" secondItem="xEu-HU-3Fg" secondAttribute="trailing" constant="27" id="eqT-Kz-cyA"/>
                             <constraint firstItem="20H-uL-NKT" firstAttribute="bottom" secondItem="yDC-bV-1ig" secondAttribute="bottom" id="fQr-hf-M2d"/>
                             <constraint firstItem="xEu-HU-3Fg" firstAttribute="leading" secondItem="20H-uL-NKT" secondAttribute="leading" constant="27" id="nhw-ZX-7o8"/>
                             <constraint firstItem="20H-uL-NKT" firstAttribute="bottom" secondItem="xEu-HU-3Fg" secondAttribute="bottom" constant="27" id="oMJ-lr-zUC"/>
+                            <constraint firstItem="zt6-rL-G9O" firstAttribute="leading" secondItem="20H-uL-NKT" secondAttribute="leading" id="v7q-Ix-2mk"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="20H-uL-NKT"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Filters" largeTitleDisplayMode="always" id="9Jd-gx-fAr"/>
+                    <navigationItem key="navigationItem" title="Filters" largeTitleDisplayMode="never" id="9Jd-gx-fAr"/>
                     <connections>
                         <outlet property="applyButton" destination="xEu-HU-3Fg" id="PHM-Bb-vXw"/>
+                        <outlet property="navBar" destination="zt6-rL-G9O" id="tRy-wd-gvq"/>
                         <outlet property="tableView" destination="yDC-bV-1ig" id="pGV-4a-Mz6"/>
                     </connections>
                 </viewController>
@@ -241,10 +265,9 @@
         <!--Navigation Controller-->
         <scene sceneID="KzX-Zp-sho">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="DIF-wZ-EGO" sceneMemberID="viewController">
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" navigationBarHidden="YES" id="DIF-wZ-EGO" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" backIndicatorImage="Back" id="Sg9-BE-ONb">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="Sg9-BE-ONb">
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="tintColor" name="Black-White"/>
                         <textAttributes key="titleTextAttributes">
@@ -267,11 +290,13 @@
         </scene>
     </scenes>
     <resources>
-        <image name="Back" width="29" height="25"/>
         <image name="Checkmark" width="25" height="19"/>
         <image name="Filter" width="29" height="29"/>
         <namedColor name="Black-White">
             <color red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="White-Black">
+            <color red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
     </resources>
 </document>

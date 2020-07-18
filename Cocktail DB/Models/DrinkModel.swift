@@ -12,3 +12,13 @@ struct DrinkModel: Codable {
     var strDrink: String?
     var strDrinkThumb: String?
 }
+
+struct GroupedDrinkModel {
+    var groupName: String
+    var drinks: [DrinkModel]
+    
+    init(groupName: String, drinks: [DrinkModel]) {
+        self.groupName = groupName
+        self.drinks = drinks
+    }
+}

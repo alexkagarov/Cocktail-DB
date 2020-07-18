@@ -8,11 +8,12 @@
 
 import UIKit
 
+// I'm going to use this delegate to pass data from FiltersVC to DrinksVC
 protocol DrinksVCDelegate: class {
     func didChangeFilters(filters: [UIFilterModel])
 }
 
-class DrinksVC: UIViewController {
+class DrinksVC: CustomVC {
 
     // MARK: - IBOutlets
     @IBOutlet weak var tableView: UITableView!
@@ -28,8 +29,6 @@ class DrinksVC: UIViewController {
     // MARK: - VC Life Cycle
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        setupView()
     }
 
     override func viewWillAppear(_ animated: Bool) {
@@ -39,7 +38,23 @@ class DrinksVC: UIViewController {
     }
     
     // MARK: - Functions
-    private func setupView() {
+    override func setupView() {
+        super.setupView()
+        
+        setupNavBar()
+        startLoading()
+    }
+    
+    private func setupNavBar() {
+        navBar?.delegate = self
+        
+        navBar?.title = "Drinks"
+        
+        navBar?.isBackBtnHidden = true
+        navBar?.isRightBtnHidden = false
+    }
+    
+    private func startLoading() {
         activityIndicator.startAnimating()
         loadingView.isHidden = false
         retryButton.isHidden = true
@@ -110,12 +125,6 @@ class DrinksVC: UIViewController {
     }
     
     // MARK: - IBActions
-    @IBAction func onFilterButtonTapped(_ sender: UIBarButtonItem) {
-        if viewModel.filters.count > 0 {
-            performSegue(withIdentifier: Segues.Filters, sender: self)
-        }
-    }
-    
     @IBAction func onRetryButtonTapped(_ sender: UIButton) {
         setupView()
         loadData()
@@ -156,7 +165,6 @@ extension DrinksVC: UITableViewDelegate {
         if (viewModel.groupedDrinks.count == selectedFilters.count) &&
             indexPath.section == (viewModel.groupedDrinks.count) - 1 &&
             indexPath.row == (viewModel.groupedDrinks[indexPath.section].drinks.count) - 1 {
-//            self.viewModel.needsDownload = false
             
             let alert = UIAlertController(title: "All data loaded", message: "You've reached the end of all drinks in Cocktail DB", preferredStyle: .alert)
             
@@ -185,5 +193,17 @@ extension DrinksVC: UITableViewDelegate {
 extension DrinksVC: DrinksVCDelegate {
     func didChangeFilters(filters: [UIFilterModel]) {
         viewModel.filters = filters
+    }
+}
+
+extension DrinksVC: CustomNavBarDelegate {
+    func backBtnAction() {
+        // there is no back button
+    }
+    
+    func rightBtnAction() {
+        if viewModel.filters.count > 0 {
+            performSegue(withIdentifier: Segues.Filters, sender: self)
+        }
     }
 }

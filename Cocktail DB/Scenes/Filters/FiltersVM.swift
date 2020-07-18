@@ -17,7 +17,3 @@ class FiltersVM {
         self.initialFilters = filters
     }
 }
-
-extension FiltersVM {
-    
-}
