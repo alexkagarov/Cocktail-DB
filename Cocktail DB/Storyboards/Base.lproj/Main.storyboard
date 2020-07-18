@@ -82,7 +82,7 @@
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kNi-CZ-LvT">
-                                        <rect key="frame" x="27" y="333.5" width="321" height="17.5"/>
+                                        <rect key="frame" x="27" y="333.5" width="321" height="18"/>
                                         <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="15"/>
                                         <color key="textColor" red="0.4941176471" green="0.4941176471" blue="0.4941176471" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
@@ -121,7 +121,7 @@
                                 </constraints>
                             </view>
                         </subviews>
-                        <color key="backgroundColor" name="White-Black"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="CNa-Tb-XrO" secondAttribute="trailing" id="1YQ-dz-HG0"/>
                             <constraint firstItem="CNa-Tb-XrO" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="3kT-0G-iEJ"/>
@@ -238,7 +238,7 @@
                                 </connections>
                             </button>
                         </subviews>
-                        <color key="backgroundColor" name="White-Black"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="yDC-bV-1ig" firstAttribute="top" secondItem="zt6-rL-G9O" secondAttribute="bottom" id="0Oe-lH-Pyr"/>
                             <constraint firstItem="20H-uL-NKT" firstAttribute="trailing" secondItem="yDC-bV-1ig" secondAttribute="trailing" id="4Ac-uv-sFF"/>
