@@ -97,11 +97,29 @@ class DrinksVC: CustomVC {
             self.viewModel.groupedDrinks = []
             self.loadingLabel.text = "Loading drinks according to filters..."
             
-            self.updateData(success: {
-                self.completeLoading()
-                self.tableView.reloadData()
-                self.tableView.scrollToRow(at: IndexPath(row: 0, section: 0), at: .top, animated: true)
-            })
+            if viewModel.filters.filter({ $0.isSelected == true }).count != 0 {
+                self.updateData(success: {
+                    self.completeLoading()
+                    self.tableView.reloadData()
+                    self.tableView.scrollToRow(at: IndexPath(row: 0, section: 0), at: .top, animated: true)
+                })
+            } else {
+                self.viewModel.filtersLoaded = 0
+                self.viewModel.groupedDrinks = []
+                tableView.reloadData()
+                
+                completeLoading()
+                
+                let alert = UIAlertController(title: "No filters", message: "Please choose at least one filter in order to receive the results!", preferredStyle: .alert)
+                
+                let okAction = UIAlertAction(title: "OK", style: .default, handler: nil)
+                
+                alert.addAction(okAction)
+                
+                alert.view.tintColor = .black
+                
+                self.present(alert, animated: true, completion: nil)
+            }
         }
     }
     
@@ -180,7 +198,7 @@ extension DrinksVC: UITableViewDelegate {
             indexPath.section == (viewModel.groupedDrinks.count) - 1 &&
             indexPath.row == (viewModel.groupedDrinks[indexPath.section].drinks.count) - 1 {
             
-            let alert = UIAlertController(title: "All data loaded", message: "You've reached the end of all drinks in Cocktail DB", preferredStyle: .alert)
+            let alert = UIAlertController(title: "All data loaded", message: "You've reached the end of all drinks in Cocktail DB (with given filters)", preferredStyle: .alert)
             
             let okAction = UIAlertAction(title: "OK", style: .default, handler: nil)
             
