@@ -21,6 +21,7 @@ class CustomVC: UIViewController {
     }
     
     func setupView() {
+        self.view.backgroundColor = Colors.WhiteToBlack
         self.navigationController?.setNavigationBarHidden(true, animated: false)
     }
     
