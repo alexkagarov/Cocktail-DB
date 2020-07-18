@@ -110,7 +110,7 @@ class DrinksVC: CustomVC {
                 
                 completeLoading()
                 
-                let alert = UIAlertController(title: "No filters", message: "Please choose at least one filter in order to receive the results!", preferredStyle: .alert)
+                let alert = UIAlertController(title: "No filters", message: "Please choose at least one filter in order to receive correct results!", preferredStyle: .alert)
                 
                 let okAction = UIAlertAction(title: "OK", style: .default, handler: nil)
                 
